@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Denim & Diamond • Live Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="moty-silver-logo.png" alt="Event Logo" class="logo" />
+      <div class="titles">
+        <h1>Denim & Diamond</h1>
+        <p class="subtitle">Live Gallery</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <span id="live-badge" class="badge live">LIVE</span>
+      <span id="net-badge" class="badge net hidden">OFFLINE</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="stage" id="stage">
+      <img id="stage-image" class="stage-image" alt="Current" />
+      <div class="overlay">
+        <div class="caption">
+          <div id="photo-name" class="photo-name"></div>
+          <div id="photo-time" class="photo-time"></div>
+        </div>
+        <div class="qr">
+          <img id="qr-image" class="qr-image" alt="QR to download" />
+          <div class="qr-label">Scan to Download</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="prev-btn" class="btn" aria-label="Previous" title="Previous">◀</button>
+        <button id="play-btn" class="btn" aria-label="Play/Pause" title="Play/Pause">❚❚</button>
+        <button id="next-btn" class="btn" aria-label="Next" title="Next">▶</button>
+        <button id="live-btn" class="btn primary" aria-label="Go Live" title="Go Live">Go Live</button>
+      </div>
+    </section>
+
+    <section class="filmstrip" id="filmstrip" aria-label="Recent photos"></section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
