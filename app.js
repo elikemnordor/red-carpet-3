@@ -72,20 +72,6 @@
     }
   };
 
-  function loadImgCandidates(imgEl, candidates) {
-    let i = 0;
-    const tryNext = () => {
-      if (i >= candidates.length) { imgEl.src = ''; return; }
-      const url = candidates[i++];
-      if (!url) { tryNext(); return; }
-      const probe = new Image();
-      probe.onload = () => { imgEl.src = url; };
-      probe.onerror = tryNext;
-      probe.src = url;
-    };
-    tryNext();
-  }
-
   const showToast = (msg, ms = 2000) => {
     toastEl.textContent = msg;
     toastEl.classList.add('show');
@@ -161,13 +147,7 @@
       const ring = document.createElement('div');
       ring.className = 'ring';
       const img = document.createElement('img');
-      const candidates = [];
-      if (it['google-cloud-url']) candidates.push(it['google-cloud-url']);
-      if (it.thumbnailLink) candidates.push(it.thumbnailLink);
-      candidates.push(embedUserContentFromId(it.id));
-      candidates.push(embedDriveFromId(it.id));
-      if (it.webContentLink) candidates.push(viewFromWebContent(it.webContentLink));
-      loadImgCandidates(img, candidates);
+      img.src = it['google-cloud-url'] || '';
       img.alt = it.name || '';
       div.appendChild(img);
       div.appendChild(ring);
